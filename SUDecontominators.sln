@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27428.2043
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SUDecontominators", "SUDecontominators\SUDecontominators.csproj", "{B8CCE2EA-B0EA-4BAA-8731-D3C0E1882A68}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mesages", "Mesages\Mesages.csproj", "{57466B81-C080-42EC-89AA-2B23B5F9CEF2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{B8CCE2EA-B0EA-4BAA-8731-D3C0E1882A68}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B8CCE2EA-B0EA-4BAA-8731-D3C0E1882A68}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B8CCE2EA-B0EA-4BAA-8731-D3C0E1882A68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57466B81-C080-42EC-89AA-2B23B5F9CEF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57466B81-C080-42EC-89AA-2B23B5F9CEF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57466B81-C080-42EC-89AA-2B23B5F9CEF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57466B81-C080-42EC-89AA-2B23B5F9CEF2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
