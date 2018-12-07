@@ -123,16 +123,17 @@
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 301);
+            this.statusStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
+            this.statusStrip1.Location = new System.Drawing.Point(0, 374);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(701, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(699, 5);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
             // 
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 17);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 0);
             // 
             // notifyIcon1
             // 
@@ -164,7 +165,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 0;
-            this.button1.Text = "START";
+            this.button1.Text = "ПУСК";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.start_Click);
             // 
@@ -237,14 +238,13 @@
             // labelAvaria
             // 
             this.labelAvaria.AutoSize = true;
-            this.labelAvaria.BackColor = System.Drawing.SystemColors.Window;
-            this.labelAvaria.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.labelAvaria.BackColor = System.Drawing.SystemColors.Control;
             this.labelAvaria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.labelAvaria.Font = new System.Drawing.Font("Verdana", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelAvaria.Font = new System.Drawing.Font("Verdana", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelAvaria.ForeColor = System.Drawing.Color.Red;
-            this.labelAvaria.Location = new System.Drawing.Point(176, 223);
+            this.labelAvaria.Location = new System.Drawing.Point(359, 9);
             this.labelAvaria.Name = "labelAvaria";
-            this.labelAvaria.Size = new System.Drawing.Size(144, 34);
+            this.labelAvaria.Size = new System.Drawing.Size(115, 26);
             this.labelAvaria.TabIndex = 18;
             this.labelAvaria.Text = "АВАРИЯ";
             this.labelAvaria.Visible = false;
@@ -263,14 +263,14 @@
             // lHLW
             // 
             this.lHLW.AutoSize = true;
-            this.lHLW.BackColor = System.Drawing.SystemColors.Window;
-            this.lHLW.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lHLW.BackColor = System.Drawing.SystemColors.Control;
+            this.lHLW.Font = new System.Drawing.Font("Verdana", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lHLW.ForeColor = System.Drawing.Color.Green;
-            this.lHLW.Location = new System.Drawing.Point(298, 9);
+            this.lHLW.Location = new System.Drawing.Point(220, 9);
             this.lHLW.Name = "lHLW";
-            this.lHLW.Size = new System.Drawing.Size(120, 18);
+            this.lHLW.Size = new System.Drawing.Size(113, 26);
             this.lHLW.TabIndex = 27;
-            this.lHLW.Text = "Работа Откл";
+            this.lHLW.Text = "РАБОТА";
             // 
             // groupBox4
             // 
@@ -280,7 +280,7 @@
             this.groupBox4.Controls.Add(this.label7);
             this.groupBox4.Location = new System.Drawing.Point(15, 204);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(121, 83);
+            this.groupBox4.Size = new System.Drawing.Size(127, 98);
             this.groupBox4.TabIndex = 28;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Температуры";
@@ -288,42 +288,46 @@
             // lTE2
             // 
             this.lTE2.AutoSize = true;
-            this.lTE2.BackColor = System.Drawing.SystemColors.Window;
+            this.lTE2.BackColor = System.Drawing.SystemColors.Control;
+            this.lTE2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lTE2.ForeColor = System.Drawing.Color.Maroon;
             this.lTE2.Location = new System.Drawing.Point(82, 60);
             this.lTE2.Name = "lTE2";
-            this.lTE2.Size = new System.Drawing.Size(13, 13);
+            this.lTE2.Size = new System.Drawing.Size(18, 20);
             this.lTE2.TabIndex = 15;
             this.lTE2.Text = "1";
             // 
             // lTE1
             // 
             this.lTE1.AutoSize = true;
-            this.lTE1.BackColor = System.Drawing.SystemColors.Window;
+            this.lTE1.BackColor = System.Drawing.SystemColors.Control;
+            this.lTE1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lTE1.ForeColor = System.Drawing.Color.Maroon;
             this.lTE1.Location = new System.Drawing.Point(82, 27);
             this.lTE1.Name = "lTE1";
-            this.lTE1.Size = new System.Drawing.Size(13, 13);
+            this.lTE1.Size = new System.Drawing.Size(18, 20);
             this.lTE1.TabIndex = 14;
             this.lTE1.Text = "0";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.SystemColors.Window;
+            this.label8.BackColor = System.Drawing.SystemColors.Control;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label8.Location = new System.Drawing.Point(18, 60);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(27, 13);
+            this.label8.Size = new System.Drawing.Size(38, 20);
             this.label8.TabIndex = 13;
             this.label8.Text = "TЕ2";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.SystemColors.Window;
+            this.label7.BackColor = System.Drawing.SystemColors.Control;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label7.Location = new System.Drawing.Point(18, 27);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(27, 13);
+            this.label7.Size = new System.Drawing.Size(38, 20);
             this.label7.TabIndex = 12;
             this.label7.Text = "TЕ1";
             // 
@@ -335,7 +339,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(701, 323);
+            this.ClientSize = new System.Drawing.Size(699, 379);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.lHLW);
             this.Controls.Add(this.buttonReset);

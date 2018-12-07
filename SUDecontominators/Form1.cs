@@ -15,6 +15,8 @@ namespace SUDecontominators
 
         private RegistersFromDecontaminator regs;
 
+        int Count2Exit = 0;
+
         public Form1()
         {
             InitializeComponent();
@@ -29,7 +31,7 @@ namespace SUDecontominators
         }
 
         NetworkStream stream;
-        CancellationTokenSource cancellationTokenSource;
+        public CancellationTokenSource cancellationTokenSource;
 
 
         internal RegistersFromDecontaminator Regs { get => regs; set => regs = value; }
@@ -64,9 +66,23 @@ namespace SUDecontominators
 
                 try
                 {
-                    //if(!client.Connected)
-                    await client.ConnectAsync(Set.IPAddress, Set.Port);
+                    try
+                    {
+                       // if (!client.Connected)
+                            await client.ConnectAsync(Set.IPAddress, Set.Port);
+                    }
+                    catch(SocketException ex)
+                    {
+                        //Close();
+                        string s1 = (5 - Count2Exit).ToString();
+                        MessageBox.Show("Сеть отвалилась. Программа будет закрыта через " + s1 + " попыток. " +ex.Message);
+                        client.Close();
+                        Count2Exit++;
+                        if(Count2Exit>5) Environment.Exit(0);
+                        // stream.Flush();
 
+                        return;
+                    }
                     byte[] sendBytes;
 
                     btnDisconnect.Enabled = true;
@@ -120,156 +136,163 @@ namespace SUDecontominators
                                 return;
                             }
 
-                            // тут делаем свои дела по чтению регистров c обменом старший-младший байт
-                            Regs.State = BitConverter.ToUInt16(message.Skip(0).Take(2).Reverse().ToArray(), 0);
-
-                            Regs.TE1ADC = BitConverter.ToUInt16(message.Skip(2).Take(2).Reverse().ToArray(), 0);
-                            Regs.TE2ADC = BitConverter.ToUInt16(message.Skip(4).Take(2).Reverse().ToArray(), 0);
-                            Regs.Sec = BitConverter.ToUInt16(message.Skip(6).Take(2).Reverse().ToArray(), 0);
-                            Regs.TE1 = BitConverter.ToUInt16(message.Skip(8).Take(2).Reverse().ToArray(), 0);
-                            Regs.TE2 = BitConverter.ToUInt16(message.Skip(10).Take(2).Reverse().ToArray(), 0);
-                            Regs.Count = BitConverter.ToUInt16(message.Skip(12).Take(2).Reverse().ToArray(), 0);
-                            Regs.AdrMB = BitConverter.ToUInt16(message.Skip(14).Take(2).Reverse().ToArray(), 0);
-                            Regs.HLA = BitConverter.ToUInt16(message.Skip(16).Take(2).Reverse().ToArray(), 0);
-                            Regs.SK1 = BitConverter.ToUInt16(message.Skip(18).Take(2).Reverse().ToArray(), 0);
-                            Regs.SK2 = BitConverter.ToUInt16(message.Skip(20).Take(2).Reverse().ToArray(), 0);
-                            Regs.ST1 = BitConverter.ToUInt16(message.Skip(22).Take(2).Reverse().ToArray(), 0);
-                            Regs.ST2 = BitConverter.ToUInt16(message.Skip(24).Take(2).Reverse().ToArray(), 0);
-                            Regs.HLW = BitConverter.ToUInt16(message.Skip(30).Take(2).Reverse().ToArray(), 0);
-                            Regs.K1 = BitConverter.ToUInt16(message.Skip(34).Take(2).Reverse().ToArray(), 0);
-                            Regs.K2 = BitConverter.ToUInt16(message.Skip(36).Take(2).Reverse().ToArray(), 0);
-                            Regs.RState = BitConverter.ToUInt16(message.Skip(48).Take(2).Reverse().ToArray(), 0);
-                            Regs.UTEhi = BitConverter.ToUInt16(message.Skip(50).Take(2).Reverse().ToArray(), 0);
-                            Regs.UTElo = BitConverter.ToUInt16(message.Skip(52).Take(2).Reverse().ToArray(), 0);
-                            Regs.Utmin = BitConverter.ToUInt16(message.Skip(54).Take(2).Reverse().ToArray(), 0);
-
-                            lCount.Text = Regs.Count.ToString();
-                            lSec.Text = Regs.Sec.ToString();
-                            lTE1.Text = Regs.TE1.ToString();
-                            lTE2.Text = Regs.TE2.ToString();
-
-                            lUTEhi.Text = Regs.UTEhi.ToString();
-                            lUTElo.Text = Regs.UTElo.ToString();
-                            lUtmin.Text = Regs.Utmin.ToString();
-
-
-                            if (Regs.ST1 == 1)
+                            try
                             {
-                                lST1.Text = "ST1 Вкл";
-                                lST1.Enabled = true;
-                            }
-                            else
-                            {
-                                lST1.Text = "ST1 Выкл";
-                                lST1.Enabled = false;
-                            }
+                                // тут делаем свои дела по чтению регистров c обменом старший-младший байт
+                                Regs.State = BitConverter.ToUInt16(message.Skip(0).Take(2).Reverse().ToArray(), 0);
+
+                                Regs.TE1ADC = BitConverter.ToUInt16(message.Skip(2).Take(2).Reverse().ToArray(), 0);
+                                Regs.TE2ADC = BitConverter.ToUInt16(message.Skip(4).Take(2).Reverse().ToArray(), 0);
+                                Regs.Sec = BitConverter.ToUInt16(message.Skip(6).Take(2).Reverse().ToArray(), 0);
+                                Regs.TE1 = BitConverter.ToUInt16(message.Skip(8).Take(2).Reverse().ToArray(), 0);
+                                Regs.TE2 = BitConverter.ToUInt16(message.Skip(10).Take(2).Reverse().ToArray(), 0);
+                                Regs.Count = BitConverter.ToUInt16(message.Skip(12).Take(2).Reverse().ToArray(), 0);
+                                Regs.AdrMB = BitConverter.ToUInt16(message.Skip(14).Take(2).Reverse().ToArray(), 0);
+                                Regs.HLA = BitConverter.ToUInt16(message.Skip(16).Take(2).Reverse().ToArray(), 0);
+                                Regs.SK1 = BitConverter.ToUInt16(message.Skip(18).Take(2).Reverse().ToArray(), 0);
+                                Regs.SK2 = BitConverter.ToUInt16(message.Skip(20).Take(2).Reverse().ToArray(), 0);
+                                Regs.ST1 = BitConverter.ToUInt16(message.Skip(22).Take(2).Reverse().ToArray(), 0);
+                                Regs.ST2 = BitConverter.ToUInt16(message.Skip(24).Take(2).Reverse().ToArray(), 0);
+                                Regs.HLW = BitConverter.ToUInt16(message.Skip(30).Take(2).Reverse().ToArray(), 0);
+                                Regs.K1 = BitConverter.ToUInt16(message.Skip(34).Take(2).Reverse().ToArray(), 0);
+                                Regs.K2 = BitConverter.ToUInt16(message.Skip(36).Take(2).Reverse().ToArray(), 0);
+                                Regs.RState = BitConverter.ToUInt16(message.Skip(48).Take(2).Reverse().ToArray(), 0);
+                                Regs.UTEhi = BitConverter.ToUInt16(message.Skip(50).Take(2).Reverse().ToArray(), 0);
+                                Regs.UTElo = BitConverter.ToUInt16(message.Skip(52).Take(2).Reverse().ToArray(), 0);
+                                Regs.Utmin = BitConverter.ToUInt16(message.Skip(54).Take(2).Reverse().ToArray(), 0);
+
+                                lCount.Text = Regs.Count.ToString();
+                                lSec.Text = Regs.Sec.ToString();
+                                lTE1.Text = ((short)Regs.TE1).ToString();
+                                lTE2.Text = ((short)Regs.TE2).ToString();
+
+                                lUTEhi.Text = Regs.UTEhi.ToString();
+                                lUTElo.Text = Regs.UTElo.ToString();
+                                lUtmin.Text = Regs.Utmin.ToString();
 
 
-                            if (Regs.ST2 == 1)
-                            {
-                                lST2.Text = "ST2 Вкл";
-                                lST2.Enabled = true;
-                            }
-                            else
-                            {
-                                lST2.Text = "ST2 Выкл";
-                                lST2.Enabled = false;
-                            }
-                            if (Regs.HLA == 1)
-                                label2.Visible = true;
-                            else
-                                label2.Visible = false;
-
-                            if (Regs.HLW == 1)
-                            {
-                                lHLW.Text = "Работа Вкл";
-                                lHLW.Enabled = true;
-                            }
-                            else
-                            {
-                                lHLW.Text = "Работа Выкл";
-                                lHLW.Enabled = false;
-                            }
-
-                            if (Regs.SK2 == 0)
-                            {
-                                lRelay2.Text = "Аммиак";
-                            }
-                            else if (Regs.SK2 == 1)
-                            {
-                                lRelay2.Text = "Формалин";
-                            }
-                            else
-                            {
-                                lRelay2.Text = "неопределенно";
-                            }
-
-
-                            if (Regs.SK1 == 0)
-                            {
-                                lRelay1.Text = "Откл";
-                            }
-                            else if (Regs.SK1 == 1)
-                            {
-                                lRelay1.Text = "Вкл";
-                            }
-                            else
-                            {
-                                lRelay1.Text = "неопределенно";
-                            }
-
-
-                            if ((Regs.State & 1) == 0)
-                            {
-                                label3.Enabled = false;
-                            }
-                            else
-                            {
-                                label3.Enabled = true;
-                            }
-
-                            if ((Regs.State & 2) == 0)
-                            {
-                                label4.Enabled = false;
-                            }
-                            else
-                            {
-                                label4.Enabled = true;
-                            }
-                            if ((Regs.State & 4) == 0)
-                            {
-                                label5.Enabled = false;
-                            }
-                            else
-                            {
-                                label5.Enabled = true;
-                            }
-                            if ((Regs.State & 8) == 0)
-                            {
-                                label6.Enabled = false;
-                            }
-                            else
-                            {
-                                label6.Enabled = true;
-                            }
-
-
-                            if (Width > 500)
-                            {
-                                string Text = "";
-                                for (int i = 0; i < 64; i++)
+                                if (Regs.ST1 == 1)
                                 {
-                                    if ((i % 2) == 0) Text += String.Format("{0:00}", (i / 2)) + ":[";
-                                    Text += String.Format("{0:x2}", message[i]);
-                                    if ((i % 2) != 0) Text += "] ";
-                                    if ((i == 15) || (i == 31) || (i == 47))
-                                    {
-                                        listBox1.Items.Add(Text);
-                                        Text = "";
-                                    }
+                                    lST1.Text = "ST1 Вкл";
+                                    lST1.Enabled = true;
                                 }
-                                listBox1.Items.Add(Text);
-                                listBox1.Items.Add("");
+                                else
+                                {
+                                    lST1.Text = "ST1 Выкл";
+                                    lST1.Enabled = false;
+                                }
+
+
+                                if (Regs.ST2 == 1)
+                                {
+                                    lST2.Text = "ST2 Вкл";
+                                    lST2.Enabled = true;
+                                }
+                                else
+                                {
+                                    lST2.Text = "ST2 Выкл";
+                                    lST2.Enabled = false;
+                                }
+                                if (Regs.HLA == 1)
+                                    label2.Visible = true;
+                                else
+                                    label2.Visible = false;
+
+                                if (Regs.HLW == 1)
+                                {
+                                   // lHLW.Text = "Работа Вкл";
+                                    lHLW.Enabled = true;
+                                }
+                                else
+                                {
+                                   // lHLW.Text = "Работа Выкл";
+                                    lHLW.Enabled = false;
+                                }
+
+                                if (Regs.SK2 == 0)
+                                {
+                                    lRelay2.Text = "Аммиак";
+                                }
+                                else if (Regs.SK2 == 1)
+                                {
+                                    lRelay2.Text = "Формалин";
+                                }
+                                else
+                                {
+                                    lRelay2.Text = "неопределенно";
+                                }
+
+
+                                if (Regs.SK1 == 0)
+                                {
+                                    lRelay1.Text = "Откл";
+                                }
+                                else if (Regs.SK1 == 1)
+                                {
+                                    lRelay1.Text = "Вкл";
+                                }
+                                else
+                                {
+                                    lRelay1.Text = "неопределенно";
+                                }
+
+
+                                if ((Regs.State & 1) == 0)
+                                {
+                                    label3.Enabled = false;
+                                }
+                                else
+                                {
+                                    label3.Enabled = true;
+                                }
+
+                                if ((Regs.State & 2) == 0)
+                                {
+                                    label4.Enabled = false;
+                                }
+                                else
+                                {
+                                    label4.Enabled = true;
+                                }
+                                if ((Regs.State & 4) == 0)
+                                {
+                                    label5.Enabled = false;
+                                }
+                                else
+                                {
+                                    label5.Enabled = true;
+                                }
+                                if ((Regs.State & 8) == 0)
+                                {
+                                    label6.Enabled = false;
+                                }
+                                else
+                                {
+                                    label6.Enabled = true;
+                                }
+
+
+                                if (Width > 500)
+                                {
+                                    string Text = "";
+                                    for (int i = 0; i < 64; i++)
+                                    {
+                                        if ((i % 2) == 0) Text += String.Format("{0:00}", (i / 2)) + ":[";
+                                        Text += String.Format("{0:x2}", message[i]);
+                                        if ((i % 2) != 0) Text += "] ";
+                                        if ((i == 15) || (i == 31) || (i == 47))
+                                        {
+                                            listBox1.Items.Add(Text);
+                                            Text = "";
+                                        }
+                                    }
+                                    listBox1.Items.Add(Text);
+                                    listBox1.Items.Add("");
+                                }
+                            }
+                            catch
+                            {
+                                //
                             }
 
                         }
@@ -406,8 +429,23 @@ namespace SUDecontominators
                 try
                 {
                     //if(!client.Connected)
-                    await client.ConnectAsync(Set.IPAddress, Set.Port);
+                    try
+                    {
+                        await client.ConnectAsync(Set.IPAddress, Set.Port);
+                    }
+                    catch(SocketException ex)
+                    {
+                        string s1 = (5 - Count2Exit).ToString();
+                        MessageBox.Show("Сеть отвалилась. Закрываемся через " + s1 + " попыток. " + ex.Message);
+                        client.Close();
+                        Count2Exit++;
+                        if (Count2Exit > 5) Environment.Exit(0);
 
+//                        Environment.Exit(0);
+                        // stream.Flush();
+
+                        return;
+                    }
                     cancellationTokenSource = new CancellationTokenSource();
                     stream = client.GetStream();
 
@@ -522,7 +560,7 @@ namespace SUDecontominators
 
         public void Reset_Click(object sender, EventArgs e)
         {
-            Send2ModbusFun10(24, 1);
+            Send2ModbusFun10(24, 0xFF);
         }
 
         public void button2_Click(object sender, EventArgs e)
@@ -535,6 +573,12 @@ namespace SUDecontominators
         {
             ushort temp = Convert.ToUInt16(numericUpDownUtmin.Value);
             Send2ModbusFun10(27, temp);
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = true;
+            Hide();
         }
     }
 }

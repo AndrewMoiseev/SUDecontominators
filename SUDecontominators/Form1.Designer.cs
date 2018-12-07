@@ -121,7 +121,7 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 6;
-            this.button3.Text = "Reset";
+            this.button3.Text = "СБРОС";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.Reset_Click);
             // 
@@ -151,12 +151,13 @@
             // lRelay1
             // 
             this.lRelay1.AutoSize = true;
-            this.lRelay1.BackColor = System.Drawing.SystemColors.Window;
-            this.lRelay1.Location = new System.Drawing.Point(118, 47);
+            this.lRelay1.BackColor = System.Drawing.SystemColors.Control;
+            this.lRelay1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lRelay1.Location = new System.Drawing.Point(112, 42);
             this.lRelay1.Name = "lRelay1";
-            this.lRelay1.Size = new System.Drawing.Size(27, 13);
+            this.lRelay1.Size = new System.Drawing.Size(61, 24);
             this.lRelay1.TabIndex = 10;
-            this.lRelay1.Text = "OFF";
+            this.lRelay1.Text = "OТКЛ";
             // 
             // bK1off
             // 
@@ -165,7 +166,7 @@
             this.bK1off.Name = "bK1off";
             this.bK1off.Size = new System.Drawing.Size(75, 23);
             this.bK1off.TabIndex = 3;
-            this.bK1off.Text = "K1 выкл";
+            this.bK1off.Text = "K1 откл";
             this.bK1off.UseVisualStyleBackColor = true;
             this.bK1off.Click += new System.EventHandler(this.bK1off_Click);
             // 
@@ -229,16 +230,17 @@
             // lRelay2
             // 
             this.lRelay2.AutoSize = true;
-            this.lRelay2.Location = new System.Drawing.Point(126, 47);
+            this.lRelay2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lRelay2.Location = new System.Drawing.Point(93, 39);
             this.lRelay2.Name = "lRelay2";
-            this.lRelay2.Size = new System.Drawing.Size(48, 13);
+            this.lRelay2.Size = new System.Drawing.Size(79, 24);
             this.lRelay2.TabIndex = 12;
             this.lRelay2.Text = "Аммиак";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.SystemColors.Window;
+            this.label1.BackColor = System.Drawing.SystemColors.Control;
             this.label1.Location = new System.Drawing.Point(179, 7);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(88, 13);
@@ -248,7 +250,7 @@
             // lSec
             // 
             this.lSec.AutoSize = true;
-            this.lSec.BackColor = System.Drawing.SystemColors.Window;
+            this.lSec.BackColor = System.Drawing.SystemColors.Control;
             this.lSec.Location = new System.Drawing.Point(285, 7);
             this.lSec.Name = "lSec";
             this.lSec.Size = new System.Drawing.Size(13, 13);
@@ -258,14 +260,13 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.SystemColors.Window;
-            this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label2.BackColor = System.Drawing.SystemColors.Control;
             this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label2.Font = new System.Drawing.Font("Verdana", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Font = new System.Drawing.Font("Verdana", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label2.ForeColor = System.Drawing.Color.Red;
-            this.label2.Location = new System.Drawing.Point(224, 30);
+            this.label2.Location = new System.Drawing.Point(240, 33);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(144, 34);
+            this.label2.Size = new System.Drawing.Size(115, 26);
             this.label2.TabIndex = 0;
             this.label2.Text = "АВАРИЯ";
             this.label2.Visible = false;
@@ -284,24 +285,26 @@
             // lST2
             // 
             this.lST2.AutoSize = true;
-            this.lST2.BackColor = System.Drawing.SystemColors.Window;
+            this.lST2.BackColor = System.Drawing.SystemColors.Control;
             this.lST2.Enabled = false;
+            this.lST2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lST2.ForeColor = System.Drawing.Color.Crimson;
             this.lST2.Location = new System.Drawing.Point(31, 61);
             this.lST2.Name = "lST2";
-            this.lST2.Size = new System.Drawing.Size(55, 13);
+            this.lST2.Size = new System.Drawing.Size(93, 24);
             this.lST2.TabIndex = 12;
             this.lST2.Text = "ST2 Откл";
             // 
             // lST1
             // 
             this.lST1.AutoSize = true;
-            this.lST1.BackColor = System.Drawing.SystemColors.Window;
+            this.lST1.BackColor = System.Drawing.SystemColors.Control;
             this.lST1.Enabled = false;
+            this.lST1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lST1.ForeColor = System.Drawing.Color.Crimson;
             this.lST1.Location = new System.Drawing.Point(31, 27);
             this.lST1.Name = "lST1";
-            this.lST1.Size = new System.Drawing.Size(55, 13);
+            this.lST1.Size = new System.Drawing.Size(93, 24);
             this.lST1.TabIndex = 11;
             this.lST1.Text = "ST1 Откл";
             // 
@@ -379,42 +382,46 @@
             // lTE2
             // 
             this.lTE2.AutoSize = true;
-            this.lTE2.BackColor = System.Drawing.SystemColors.Window;
+            this.lTE2.BackColor = System.Drawing.SystemColors.Control;
+            this.lTE2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lTE2.ForeColor = System.Drawing.Color.Maroon;
-            this.lTE2.Location = new System.Drawing.Point(82, 60);
+            this.lTE2.Location = new System.Drawing.Point(88, 70);
             this.lTE2.Name = "lTE2";
-            this.lTE2.Size = new System.Drawing.Size(13, 13);
+            this.lTE2.Size = new System.Drawing.Size(20, 24);
             this.lTE2.TabIndex = 15;
             this.lTE2.Text = "1";
             // 
             // lTE1
             // 
             this.lTE1.AutoSize = true;
-            this.lTE1.BackColor = System.Drawing.SystemColors.Window;
+            this.lTE1.BackColor = System.Drawing.SystemColors.Control;
+            this.lTE1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lTE1.ForeColor = System.Drawing.Color.Maroon;
-            this.lTE1.Location = new System.Drawing.Point(82, 27);
+            this.lTE1.Location = new System.Drawing.Point(88, 27);
             this.lTE1.Name = "lTE1";
-            this.lTE1.Size = new System.Drawing.Size(13, 13);
+            this.lTE1.Size = new System.Drawing.Size(20, 24);
             this.lTE1.TabIndex = 14;
             this.lTE1.Text = "0";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.SystemColors.Window;
-            this.label8.Location = new System.Drawing.Point(18, 60);
+            this.label8.BackColor = System.Drawing.SystemColors.Control;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label8.Location = new System.Drawing.Point(24, 70);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(27, 13);
+            this.label8.Size = new System.Drawing.Size(45, 24);
             this.label8.TabIndex = 13;
             this.label8.Text = "TЕ2";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.SystemColors.Window;
-            this.label7.Location = new System.Drawing.Point(18, 27);
+            this.label7.BackColor = System.Drawing.SystemColors.Control;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label7.Location = new System.Drawing.Point(24, 27);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(27, 13);
+            this.label7.Size = new System.Drawing.Size(45, 24);
             this.label7.TabIndex = 12;
             this.label7.Text = "TЕ1";
             // 
@@ -428,16 +435,17 @@
             this.groupBox5.Size = new System.Drawing.Size(232, 88);
             this.groupBox5.TabIndex = 19;
             this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Уставка температуры перегрева бака";
+            this.groupBox5.Text = "Уставка температуры перегрева жидкости в баках";
             // 
             // lUTEhi
             // 
             this.lUTEhi.AutoSize = true;
-            this.lUTEhi.BackColor = System.Drawing.SystemColors.Window;
+            this.lUTEhi.BackColor = System.Drawing.SystemColors.Control;
+            this.lUTEhi.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lUTEhi.ForeColor = System.Drawing.Color.Maroon;
             this.lUTEhi.Location = new System.Drawing.Point(94, 27);
             this.lUTEhi.Name = "lUTEhi";
-            this.lUTEhi.Size = new System.Drawing.Size(13, 13);
+            this.lUTEhi.Size = new System.Drawing.Size(20, 24);
             this.lUTEhi.TabIndex = 15;
             this.lUTEhi.Text = "0";
             // 
@@ -501,16 +509,17 @@
             this.groupBox6.Size = new System.Drawing.Size(215, 88);
             this.groupBox6.TabIndex = 23;
             this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Уставка температуры нагрева бака";
+            this.groupBox6.Text = "Уставка температуры испарения жидкости";
             // 
             // lUTElo
             // 
             this.lUTElo.AutoSize = true;
-            this.lUTElo.BackColor = System.Drawing.SystemColors.Window;
+            this.lUTElo.BackColor = System.Drawing.SystemColors.Control;
+            this.lUTElo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lUTElo.ForeColor = System.Drawing.Color.Maroon;
-            this.lUTElo.Location = new System.Drawing.Point(94, 27);
+            this.lUTElo.Location = new System.Drawing.Point(92, 21);
             this.lUTElo.Name = "lUTElo";
-            this.lUTElo.Size = new System.Drawing.Size(13, 13);
+            this.lUTElo.Size = new System.Drawing.Size(20, 24);
             this.lUTElo.TabIndex = 15;
             this.lUTElo.Text = "0";
             // 
@@ -547,16 +556,18 @@
             this.groupBox7.Size = new System.Drawing.Size(203, 88);
             this.groupBox7.TabIndex = 20;
             this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "Уставка времени нагрева бака";
+            this.groupBox7.Text = "Уставка допустимого времени нагрева бака";
+            this.groupBox7.Visible = false;
             // 
             // lUtmin
             // 
             this.lUtmin.AutoSize = true;
-            this.lUtmin.BackColor = System.Drawing.SystemColors.Window;
+            this.lUtmin.BackColor = System.Drawing.SystemColors.Control;
+            this.lUtmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lUtmin.ForeColor = System.Drawing.Color.Maroon;
-            this.lUtmin.Location = new System.Drawing.Point(94, 27);
+            this.lUtmin.Location = new System.Drawing.Point(90, 25);
             this.lUtmin.Name = "lUtmin";
-            this.lUtmin.Size = new System.Drawing.Size(13, 13);
+            this.lUtmin.Size = new System.Drawing.Size(20, 24);
             this.lUtmin.TabIndex = 15;
             this.lUtmin.Text = "0";
             // 
@@ -586,7 +597,7 @@
             // lCount
             // 
             this.lCount.AutoSize = true;
-            this.lCount.BackColor = System.Drawing.SystemColors.Window;
+            this.lCount.BackColor = System.Drawing.SystemColors.Control;
             this.lCount.Location = new System.Drawing.Point(285, 22);
             this.lCount.Name = "lCount";
             this.lCount.Size = new System.Drawing.Size(13, 13);
@@ -596,7 +607,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.BackColor = System.Drawing.SystemColors.Window;
+            this.label12.BackColor = System.Drawing.SystemColors.Control;
             this.label12.Location = new System.Drawing.Point(93, 22);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(174, 13);
@@ -606,15 +617,15 @@
             // lHLW
             // 
             this.lHLW.AutoSize = true;
-            this.lHLW.BackColor = System.Drawing.SystemColors.Window;
+            this.lHLW.BackColor = System.Drawing.SystemColors.Control;
             this.lHLW.Enabled = false;
-            this.lHLW.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lHLW.Font = new System.Drawing.Font("Verdana", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lHLW.ForeColor = System.Drawing.Color.Green;
-            this.lHLW.Location = new System.Drawing.Point(96, 43);
+            this.lHLW.Location = new System.Drawing.Point(104, 33);
             this.lHLW.Name = "lHLW";
-            this.lHLW.Size = new System.Drawing.Size(120, 18);
+            this.lHLW.Size = new System.Drawing.Size(113, 26);
             this.lHLW.TabIndex = 26;
-            this.lHLW.Text = "Работа Откл";
+            this.lHLW.Text = "РАБОТА";
             // 
             // Form1
             // 
@@ -644,6 +655,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Пульт деконтаминатора";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResizeEnd += new System.EventHandler(this.Form1_ResizeEnd);
             this.Resize += new System.EventHandler(this.Form1_Resize);
